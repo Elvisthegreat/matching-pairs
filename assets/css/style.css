@@ -1,0 +1,22 @@
+/*Google font*/
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Lato:ital,wght@0,400;0,700;1,300;1,400;1,700&display=swap');
+
+/*Asterisk to override default settings by browser*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif;
+    background-color: #0a0a23;
+}
+
+header{
+    text-align: center;
+}
