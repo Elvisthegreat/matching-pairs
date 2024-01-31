@@ -12,6 +12,9 @@ let images = [
 "assets/images/foto10.webp"
 ];
 
+// Declare a Restart game variable and add an EventListener to it for restart
+document.getElementById('restart').addEventListener('click', restartGame);
+
 let board = [];
 let rows = 4;
 let columns = 5;
@@ -106,7 +109,34 @@ function clickCard() {
       
       }, 1000);
     } else{
-        firstCard = null ;
+      firstCard = null ;
       secondCard = null;
     }
 }
+
+function restartGame() {
+    // Clear the board array
+    board = [];
+    // Reset the game state variables
+    firstCard = null;
+    secondCard = null;
+    matchedCards = 0;
+    // Remove all the cards from the board in the DOM
+    let boardElement = document.getElementById("board");
+    while (boardElement.firstChild) {
+        boardElement.firstChild.src = "assets/images/back.jpg";
+        boardElement.removeChild(boardElement.firstChild);
+    }
+    /*Calling the startGamefunction inside the
+     restartGame function to Start a new game*/
+    startGame();
+}
+
+// jQuery for the Restart button color effect
+$('.restart1').mouseenter(function(){
+    $(this).addClass('turn-blue').removeClass('restart1')
+});
+
+$('.restart1').mouseleave(function(){
+    $(this).removeClass('turn-blue').addClass('restart1')
+});
