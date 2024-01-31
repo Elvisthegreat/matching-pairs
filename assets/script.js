@@ -1,5 +1,6 @@
 //images array
-let images = ["assets/images/foto1.webp",
+let images = [
+"assets/images/foto1.webp",
 "assets/images/foto2.webp",
 "assets/images/foto3.webp",
 "assets/images/foto4.webp",
@@ -15,8 +16,8 @@ let board = [];
 let rows = 4;
 let columns = 5;
 // Game state
-let firstCard = null; // store the first card clicked
-let secondCard = null; // store the second card clicked
+let firstCard ; // store the first card clicked
+let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
 
 
@@ -36,7 +37,6 @@ function shuffleCards(cards) {
         shuffledCards[i] = shuffledCards[x];
         shuffledCards[x] = temp;
     }
-    console.log(shuffledCards);
     return shuffledCards;
 }
 const startGame = () => {
@@ -54,11 +54,11 @@ const startGame = () => {
             card.id = row.toString() + "." + column.toString();
             card.src = cardImg;
             card.classList.add("card");
+            card.addEventListener('click', clickCard);
             document.getElementById("board").append(card);
         }
         board.push(roww);
     }
-    console.log(board);
 
 };
 // Give few second to view card before showing front side
@@ -68,18 +68,45 @@ function frontCard(){
     for(let row = 0; row < rows; row++){
         for(let column = 0; column < columns; column++){
             let card = document.getElementById(row.toString() + "." + column.toString());
-            card.src = "/assets/images/back.jpg"
+            card.src = "assets/images/back.jpg"
         }
     }
 }
 
-function lookForMatch(){
-     // get the images of the first and second cards
-    let firstimage = firstCard.src;
-    let secondimage = firstCard.src;
-     
-    //compare both images
-    if(firstimage === secondimage){
+// Add an event listener to each card
+function clickCard() {
+    if (this.src.includes("back")) {
+        if(!firstCard){
+            firstCard = this;
+            let row = firstCard.id.split('.')[0];
+            let column = this.id.split(".")[1];
+            this.src = board[row][column];
+            this.classList.add("flipped");
+        }else if(!secondCard && this != firstCard){
+            secondCard = this;
+            let row = secondCard.id.split('.')[0];
+            let column = this.id.split(".")[1];
+            this.src = board[row][column] ;
+            this.classList.add("flipped");
+            lookForMatch();
+        }
+    }
+}
 
+  function lookForMatch() {
+    // Compare the sources of the first and second cards
+    if (firstCard.src != secondCard.src) {
+    setTimeout( () => {
+         // Flip them back to the back image after a delay
+        firstCard.src = "assets/images/back.jpg";
+        secondCard.src = "assets/images/back.jpg";
+
+        firstCard = null;
+        secondCard = null;
+      
+      }, 1000);
+    } else{
+        firstCard = null ;
+      secondCard = null;
     }
 }
