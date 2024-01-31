@@ -16,6 +16,10 @@ let images = ["assets/images/foto1.webp",
 let board = [];
 let rows = 4;
 let columns = 5;
+let firstCard = null; // store the first card clicked
+let secondCard = null; // store the second card clicked
+let matchedCards = 0; // count the number of matched cards
+
 
 window.onload = function () {
     shuffleCards();
