@@ -42,7 +42,17 @@ h1{
     border: 2px solid blue;
     cursor: pointer;
     padding: 3px;
+    /*Effect for when the card is click*/
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s
 }
+
+/*Effect for when the card is click*/
+.card:active {
+    transform: scale(0.96);
+    transition: transform .2s;
+  }
 
 #btn-center{
     text-align: center;
