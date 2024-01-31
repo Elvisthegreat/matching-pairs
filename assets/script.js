@@ -14,7 +14,6 @@ let images = [
 
 // Declare a Restart game variable and add an EventListener to it for restart
 document.getElementById('restart').addEventListener('click', restartGame);
-let gameWatch = document.getElementById('gameTime');
 
 let board = [];
 let rows = 4;
@@ -60,17 +59,12 @@ const startGame = () => {
             card.id = row.toString() + "." + column.toString();
             card.src = cardImg;
             card.classList.add("card");
+            // EventListener for the clickCard
             card.addEventListener('click', clickCard);
             document.getElementById("board").append(card);
         }
         board.push(roww);
     }
-
-    // Start the timer that will update the game time every second
-    timerId = setInterval(() => {
-        gameTime--; // decrement the game time by one
-        document.getElementById("time").textContent = gameTime; // display the game time on the screen
-    }, 1000); // repeat every second
 
 };
 // Give few second to view card before showing front side
@@ -103,6 +97,12 @@ function clickCard() {
             lookForMatch();
         }
     }
+
+    // Start the timer that will update the game time every second
+    timerId = setInterval(() => {
+        gameTime--; // decrement the game time by one
+        document.getElementById("time").textContent = gameTime; // display the game time on the screen
+    }, 1000);
 }
 
   function lookForMatch() {
@@ -141,10 +141,14 @@ function restartGame() {
 clearInterval(timerId);
 gameTime = 60;
 document.getElementById("time").textContent = gameTime;
+
 /*Calling the startGame function inside the
  restartGame function to Start a new game*/
+
 startGame();
+
 // Call the time counting function
+
 timeCounting();
 }
 
@@ -155,12 +159,12 @@ if (gameTime === 0) {
     gameOver();
 } else {
     // Show the alert message with the game time
-    alert(`You are a super model! You finsihed in ${gameTime} seconds...`);
+    alert(`You are a super model! You finsihed in ${timerId} seconds...`);
 }
 }
 
 function gameOver(){
-
+    alert('Game over');
 }
 
 // jQuery for the Restart button color effect
