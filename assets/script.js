@@ -14,6 +14,7 @@ let images = [
 
 // Declare a Restart game variable and add an EventListener to it for restart
 document.getElementById('restart').addEventListener('click', restartGame);
+let gameWatch = document.getElementById('gameTime');
 
 let board = [];
 let rows = 4;
@@ -22,6 +23,8 @@ let columns = 5;
 let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
+let gameTime = 60; // global variable for the game time
+let timerId; // global variable for the timer id
 
 
 window.onload = function () {
@@ -30,7 +33,6 @@ window.onload = function () {
 
 function shuffleCards(cards) {
     let shuffledCards = [...cards, ...cards]; // Duplicate the images array to have pairs of each image
-    console.log(shuffleCards);
     // loop over the array from the last element to the second element
     for (let i = shuffledCards.length - 1; i > 0; i--) {
         // pick a random index from 0 to i
@@ -45,6 +47,7 @@ function shuffleCards(cards) {
 const startGame = () => {
     // shuffle the cards and assign them to the board
     let shuffledCards = shuffleCards(images);
+    gameTime --;
     //Arrange the board by 4x5
     for (let row = 0; row < rows; row++) {
         let roww = [];
@@ -62,6 +65,12 @@ const startGame = () => {
         }
         board.push(roww);
     }
+
+    // Start the timer that will update the game time every second
+    timerId = setInterval(() => {
+        gameTime--; // decrement the game time by one
+        document.getElementById("time").textContent = gameTime; // display the game time on the screen
+    }, 1000); // repeat every second
 
 };
 // Give few second to view card before showing front side
@@ -127,9 +136,31 @@ function restartGame() {
         boardElement.firstChild.src = "assets/images/back.jpg";
         boardElement.removeChild(boardElement.firstChild);
     }
-    /*Calling the startGamefunction inside the
-     restartGame function to Start a new game*/
-    startGame();
+
+// Clear the timer and reset the game time to 60
+clearInterval(timerId);
+gameTime = 60;
+document.getElementById("time").textContent = gameTime;
+/*Calling the startGame function inside the
+ restartGame function to Start a new game*/
+startGame();
+// Call the time counting function
+timeCounting();
+}
+
+const timeCounting = () =>{
+// Check if the game time is zero
+if (gameTime === 0) {
+    // Call the game over function
+    gameOver();
+} else {
+    // Show the alert message with the game time
+    alert(`You are a super model! You finsihed in ${gameTime} seconds...`);
+}
+}
+
+function gameOver(){
+
 }
 
 // jQuery for the Restart button color effect

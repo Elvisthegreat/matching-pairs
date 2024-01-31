@@ -16,16 +16,23 @@ body {
 
 header{
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: px;
+    
 }
 
 h1{
     color: chocolate;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
+    margin-top: 2rem;
 }
 
+#gameTime{
+   color: white;
+   text-align: center;
+   margin-top: 3em;
+}
+
+/* Board section*/
 #board{
     border: 6px solid rgb(74, 75, 73);
     width: 320px;
@@ -36,6 +43,7 @@ h1{
     
 }
 
+/* Card section*/
 .card{
     max-width: 100%;
     height: 94px;
