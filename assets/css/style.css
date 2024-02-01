@@ -82,3 +82,21 @@ h1{
 .restart1{
     background-color: chocolate;
 }
+
+@media screen and (min-width: 768px){
+    #board{
+        width: 550px;
+        height: 398px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px){
+    #board{
+        width: 750px;
+        height: 392px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

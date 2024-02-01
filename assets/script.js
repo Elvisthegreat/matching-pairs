@@ -22,10 +22,13 @@ let columns = 5;
 let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
+
+let timerInterval = null; // Declare a global variable for the interval ID
 let gameTime = 60; // global variable for the game time
-let timerId; // global variable for the timer id
 
 
+
+// Call the startGame immediately the browser is loaded
 window.onload = function () {
     startGame();
 };
@@ -79,6 +82,7 @@ function frontCard(){
 }
 
 function clickCard() {
+
     if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
@@ -95,13 +99,13 @@ function clickCard() {
             lookForMatch();
         }
     }
+
 }
 
   function lookForMatch() {
     // Compare the sources of the first and second cards
     if (firstCard.src != secondCard.src) {
-    setTimeout( () => {
-         // Flip them back to the back image after a delay
+    setTimeout( () => {  // Flip them back to the back image after a delay
         firstCard.src = "assets/images/back.jpg";
         secondCard.src = "assets/images/back.jpg";
 
@@ -122,6 +126,7 @@ function restartGame() {
     firstCard = null;
     secondCard = null;
     matchedCards = 0;
+    
     // Remove all the cards from the board in the DOM
     let boardElement = document.getElementById("board");
     while (boardElement.firstChild) {
@@ -134,8 +139,12 @@ function restartGame() {
  when the restart button is clicked*/
 
 startGame();
+} 
 
+function gameOver(){
+    alert('Game Over! :D');
 }
+
 
 // jQuery for the Restart button color effect
 $('.restart1').mouseenter(function(){
