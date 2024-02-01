@@ -46,7 +46,6 @@ function shuffleCards(cards) {
 const startGame = () => {
     // shuffle the cards and assign them to the board
     let shuffledCards = shuffleCards(images);
-    gameTime --;
     //Arrange the board by 4x5
     for (let row = 0; row < rows; row++) {
         let roww = [];
@@ -59,6 +58,7 @@ const startGame = () => {
             card.id = row.toString() + "." + column.toString();
             card.src = cardImg;
             card.classList.add("card");
+            card.classList.add("flip");
             // EventListener for the clickCard
             card.addEventListener('click', clickCard);
             document.getElementById("board").append(card);
@@ -97,12 +97,6 @@ function clickCard() {
             lookForMatch();
         }
     }
-
-    // Start the timer that will update the game time every second
-    timerId = setInterval(() => {
-        gameTime--; // decrement the game time by one
-        document.getElementById("time").textContent = gameTime; // display the game time on the screen
-    }, 1000);
 }
 
   function lookForMatch() {
@@ -137,34 +131,11 @@ function restartGame() {
         boardElement.removeChild(boardElement.firstChild);
     }
 
-// Clear the timer and reset the game time to 60
-clearInterval(timerId);
-gameTime = 60;
-document.getElementById("time").textContent = gameTime;
-
 /*Calling the startGame function inside the
  restartGame function to Start a new game*/
 
 startGame();
 
-// Call the time counting function
-
-timeCounting();
-}
-
-const timeCounting = () =>{
-// Check if the game time is zero
-if (gameTime === 0) {
-    // Call the game over function
-    gameOver();
-} else {
-    // Show the alert message with the game time
-    alert(`You are a super model! You finsihed in ${timerId} seconds...`);
-}
-}
-
-function gameOver(){
-    alert('Game over');
 }
 
 // jQuery for the Restart button color effect
