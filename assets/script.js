@@ -57,6 +57,7 @@ const startGame = () => {
             let card = document.createElement("img");
             card.id = row.toString() + "." + column.toString();
             card.src = cardImg;
+            card.src = "assets/images/back.jpg";
             card.classList.add("card");
             card.classList.add("flip");
             // EventListener for the clickCard
@@ -67,10 +68,8 @@ const startGame = () => {
     }
 
 };
-// Give few second to view card before showing front side
-setTimeout(frontCard, 1000);
+
 function frontCard(){
-    
     for(let row = 0; row < rows; row++){
         for(let column = 0; column < columns; column++){
             let card = document.getElementById(row.toString() + "." + column.toString());
@@ -79,9 +78,8 @@ function frontCard(){
     }
 }
 
-// Add an event listener to each card
 function clickCard() {
-    if (this.src.includes("back")) {
+    if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
             let row = firstCard.id.split('.')[0];
@@ -132,7 +130,8 @@ function restartGame() {
     }
 
 /*Calling the startGame function inside the
- restartGame function to Start a new game*/
+ restartGame function to Start a new game 
+ when the restart button is clicked*/
 
 startGame();
 
