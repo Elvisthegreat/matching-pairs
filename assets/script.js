@@ -23,29 +23,7 @@ let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
 
-let timerInterval = null; // Declare a global variable for the interval ID
-let gameTime = 60; // global variable for the game time
-
-function gameTimeCount(){
-    // Reset the gameTime to 60 seconds at the start of each game
-    gameTime = 60;
-
-    // Update the timer display
-    document.getElementById("timer").innerText = gameTime;
-
-    // Start the timer
-    timerInterval = setInterval(() => {
-        gameTime--; // Decrease the gameTime by 1
-        document.getElementById("timer").innerText = gameTime; // Update the timer display
-
-        // If the gameTime reaches 0, stop the timer and end the game
-        if (gameTime === 0) {
-            clearInterval(timerInterval); // Stop the timer
-            gameOver(); // End the game
-        }
-    }, 1000); // Call the function every 1000 milliseconds (1 second)
-
-}
+let timerStarted = false;
 
 // Call the startGame immediately the browser is loaded
 window.onload = function () {
@@ -100,7 +78,7 @@ function frontCard(){
 }
 
 function clickCard() {
-    gameTimeCount();
+    
     if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
@@ -108,6 +86,12 @@ function clickCard() {
             let column = this.id.split(".")[1];
             this.src = board[row][column];
             this.classList.add("flipped");
+
+            if (!timerStarted) { // If the timer hasn't started yet
+                gameTimeCount(); // Start the timer
+                timerStarted = true; // Set the flag to true
+            }
+            
         }else if(!secondCard && this != firstCard){
             secondCard = this;
             let row = secondCard.id.split('.')[0];
@@ -160,7 +144,27 @@ function restartGame() {
  when the restart button is clicked*/
 
 startGame();
+timerStarted = false; // Reset the timer flag when the game is restarted
 } 
+
+
+function gameTimeCount(){
+    let time = 60; // global variable for the game time
+let timerElement = document.getElementById('timer'); // Get the timer element
+
+// Update the timer every second
+let timerInterval = setInterval(function() {
+    time--; // Decrease the time
+    timerElement.textContent = time; // Update the timer element
+
+    // If the time reaches zero, end the game
+    if (time === 0) {
+        clearInterval(timerInterval); // Stop the timer
+        gameOver(); // Call the game over function
+    }
+}, 1000);
+
+}
 
 function gameOver(){
     alert('Game Over! :D');
