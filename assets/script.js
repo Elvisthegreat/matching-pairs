@@ -26,7 +26,26 @@ let matchedCards = 0; // count the number of matched cards
 let timerInterval = null; // Declare a global variable for the interval ID
 let gameTime = 60; // global variable for the game time
 
+function gameTimeCount(){
+    // Reset the gameTime to 60 seconds at the start of each game
+    gameTime = 60;
 
+    // Update the timer display
+    document.getElementById("timer").innerText = gameTime;
+
+    // Start the timer
+    timerInterval = setInterval(() => {
+        gameTime--; // Decrease the gameTime by 1
+        document.getElementById("timer").innerText = gameTime; // Update the timer display
+
+        // If the gameTime reaches 0, stop the timer and end the game
+        if (gameTime === 0) {
+            clearInterval(timerInterval); // Stop the timer
+            gameOver(); // End the game
+        }
+    }, 1000); // Call the function every 1000 milliseconds (1 second)
+
+}
 
 // Call the startGame immediately the browser is loaded
 window.onload = function () {
@@ -69,7 +88,6 @@ const startGame = () => {
         }
         board.push(roww);
     }
-
 };
 
 function frontCard(){
@@ -82,7 +100,7 @@ function frontCard(){
 }
 
 function clickCard() {
-
+    gameTimeCount();
     if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
@@ -133,6 +151,9 @@ function restartGame() {
         boardElement.firstChild.src = "assets/images/back.jpg";
         boardElement.removeChild(boardElement.firstChild);
     }
+
+    // Stop the timer
+    clearInterval(timerInterval);
 
 /*Calling the startGame function inside the
  restartGame function to Start a new game 
