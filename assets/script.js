@@ -161,7 +161,7 @@ startGame();
 } 
 
 function congrats() {
-    // Select from the congratsArray if all cards are matched
+    //Randomly select from the congratsArray if all cards are matched
     let randomIndex = Math.floor(Math.random() * congratsArray.length);
      alert(congratsArray[randomIndex]);
  }
