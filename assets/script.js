@@ -12,15 +12,21 @@ let images = [
 "assets/images/foto10.webp"
 ];
 
-// const congratsArray = [
-//     'You are the game master',
-//     'Mile stone to be rolled behind',
-//     'You are the man!',
-//     'Excellent! Great job!',
-//     'Look like it was too easy for you! :D',
-//     "Magnificent",
-//     'Better days are ahead of you'
-// ]
+/**
+ * A random strings to be pick from when 
+ * all cards are all matched
+ */
+const congratsArray = [
+     'You are the game master',
+     'Mile stone to be rolled behind',
+     'You are the man!',
+     'Excellent! Great job!',
+     'Look like it was too easy for you! :D',
+     "Magnificent",
+     'Better days are ahead of you',
+     "Spice it all up",
+     "should i call you a king Sir?!"
+]
 
 // Declare a Restart game variable and add an EventListener to it for restart
 document.getElementById('restart').addEventListener('click', restartGame);
@@ -107,16 +113,6 @@ function clickCard() {
 
 }
 
-const congratsArray = [
-    'You are the game master',
-    'Mile stone to be rolled behind',
-    'You are the man!',
-    'Excellent! Great job!',
-    'Look like it was too easy for you! :D',
-    "Magnificent",
-    'Better days are ahead of you'
-]
-
   function lookForMatch() {
     // Compare the sources of the first and second cards
     if (firstCard.src != secondCard.src) {
@@ -129,11 +125,13 @@ const congratsArray = [
       
       }, 1000);
     } else{
+      matchedCards += 2;  // Increment the matchedCards count
       firstCard = null ;
       secondCard = null;
     }
 
     // Check if all cards are matched
+    // Then call the congrats function
     if (matchedCards === rows * columns) {
         congrats();
     }
@@ -158,14 +156,15 @@ function restartGame() {
 /*Calling the startGame function inside the
  restartGame function to Start a new game 
  when the restart button is clicked*/
-
 startGame();
+
 } 
 
 function congrats() {
+    // Select from the congratsArray if all cards are matched
     let randomIndex = Math.floor(Math.random() * congratsArray.length);
-    alert(congratsArray[randomIndex]);
-}
+     alert(congratsArray[randomIndex]);
+ }
 
 function gameOver(){
     alert('Game Over! :D');
