@@ -18,14 +18,14 @@ let images = [
  */
 const congratsArray = [
      'You are the game master',
-     'Mile stone to be rolled behind',
+     'Mile stone! Keep rolling.',
      'You are the man!',
      'Excellent! Great job!',
-     'Look like it was too easy for you! :D',
+     'Looks like it was too easy for you! :D',
      "Magnificent",
      'Better days are ahead of you',
      "Spice it all up",
-     "should i call you a king Sir?!"
+     "Should i call you a king Sir :D?!"
 ]
 
 // Declare a Restart game variable and add an EventListener to it for restart
@@ -39,7 +39,7 @@ let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
 
-// Call the startGame immediately the browser is loaded
+// Call the startGame immediately the window is loaded
 window.onload = function () {
     startGame();
 };
