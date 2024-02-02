@@ -75,6 +75,11 @@ h1{
     margin-bottom: 25px;
 }
 
+#restart:hover{
+    font-size: 23px;
+    font-weight: 700;
+}
+
 .turn-blue{
     background-color: blue;
 }
