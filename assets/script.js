@@ -12,6 +12,16 @@ let images = [
 "assets/images/foto10.webp"
 ];
 
+// const congratsArray = [
+//     'You are the game master',
+//     'Mile stone to be rolled behind',
+//     'You are the man!',
+//     'Excellent! Great job!',
+//     'Look like it was too easy for you! :D',
+//     "Magnificent",
+//     'Better days are ahead of you'
+// ]
+
 // Declare a Restart game variable and add an EventListener to it for restart
 document.getElementById('restart').addEventListener('click', restartGame);
 
@@ -22,8 +32,6 @@ let columns = 5;
 let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
-
-let timerStarted = false;
 
 // Call the startGame immediately the browser is loaded
 window.onload = function () {
@@ -86,11 +94,6 @@ function clickCard() {
             let column = this.id.split(".")[1];
             this.src = board[row][column];
             this.classList.add("flipped");
-
-            if (!timerStarted) { // If the timer hasn't started yet
-                gameTimeCount(); // Start the timer
-                timerStarted = true; // Set the flag to true
-            }
             
         }else if(!secondCard && this != firstCard){
             secondCard = this;
@@ -103,6 +106,16 @@ function clickCard() {
     }
 
 }
+
+const congratsArray = [
+    'You are the game master',
+    'Mile stone to be rolled behind',
+    'You are the man!',
+    'Excellent! Great job!',
+    'Look like it was too easy for you! :D',
+    "Magnificent",
+    'Better days are ahead of you'
+]
 
   function lookForMatch() {
     // Compare the sources of the first and second cards
@@ -119,6 +132,12 @@ function clickCard() {
       firstCard = null ;
       secondCard = null;
     }
+
+    // Check if all cards are matched
+    if (matchedCards === rows * columns) {
+        congrats();
+    }
+
 }
 
 function restartGame() {
@@ -136,34 +155,16 @@ function restartGame() {
         boardElement.removeChild(boardElement.firstChild);
     }
 
-    // Stop the timer
-    clearInterval(timerInterval);
-
 /*Calling the startGame function inside the
  restartGame function to Start a new game 
  when the restart button is clicked*/
 
 startGame();
-timerStarted = false; // Reset the timer flag when the game is restarted
 } 
 
-
-function gameTimeCount(){
-    let time = 60; // global variable for the game time
-let timerElement = document.getElementById('timer'); // Get the timer element
-
-// Update the timer every second
-let timerInterval = setInterval(function() {
-    time--; // Decrease the time
-    timerElement.textContent = time; // Update the timer element
-
-    // If the time reaches zero, end the game
-    if (time === 0) {
-        clearInterval(timerInterval); // Stop the timer
-        gameOver(); // Call the game over function
-    }
-}, 1000);
-
+function congrats() {
+    let randomIndex = Math.floor(Math.random() * congratsArray.length);
+    alert(congratsArray[randomIndex]);
 }
 
 function gameOver(){
