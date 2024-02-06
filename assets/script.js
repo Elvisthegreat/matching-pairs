@@ -38,6 +38,7 @@ let columns = 5;
 let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
+let timerID;
 
 // Call the startGame immediately the window is loaded
 window.onload = function () {
@@ -58,8 +59,6 @@ function shuffleCards(cards) {
     return shuffledCards;
 }
 const startGame = () => {
-
-    // countTime--;
     // shuffle the cards and assign them to the board
     let shuffledCards = shuffleCards(images);
     //Arrange the board by 4x5
@@ -82,6 +81,9 @@ const startGame = () => {
         }
         board.push(roww);
     }
+    countTiming();
+    timerID = setInterval(countTiming, 1000);
+
 };
 
 function frontCard(){
@@ -94,7 +96,6 @@ function frontCard(){
 }
 
 function clickCard() {
-    countTiming();
     if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
@@ -159,13 +160,15 @@ function restartGame() {
  restartGame function to Start a new game 
  when the restart button is clicked*/
 startGame();
+countTime = 60;
+document.getElementById("timer").innerText = countTime;
 
 } 
 
 function congrats() {
     //Randomly select from the congratsArray if all cards are matched
-    let randomIndex = Math.floor(Math.random() * congratsArray.length);
-     alert(congratsArray[randomIndex]);
+    let randomPick = Math.floor(Math.random() * congratsArray.length);
+     alert(congratsArray[randomPick]);
  }
 
  // Count time function 
@@ -173,7 +176,11 @@ function congrats() {
  const countTiming = () =>{
     document.getElementById("timer").innerText = countTime;
     countTime--;
-    if(countTime <= 0){
+    if(countTime <= 0 || matchedCards === rows * columns){
+
+        // Stop the timer and clear the interval
+        clearInterval(timerID)
+        // Calling the gameOver function
         gameOver();
     }
  }
