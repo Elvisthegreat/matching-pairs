@@ -24,7 +24,7 @@ const congratsArray = [
      'Looks like it was too easy for you! :D',
      "Magnificent",
      'Better days are ahead of you',
-     "Spice it all up",
+     "You spiced it up",
      "Should i call you a king Sir :D?!"
 ]
 
@@ -58,6 +58,8 @@ function shuffleCards(cards) {
     return shuffledCards;
 }
 const startGame = () => {
+
+    // countTime--;
     // shuffle the cards and assign them to the board
     let shuffledCards = shuffleCards(images);
     //Arrange the board by 4x5
@@ -92,7 +94,7 @@ function frontCard(){
 }
 
 function clickCard() {
-    
+    countTiming();
     if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
@@ -164,6 +166,16 @@ function congrats() {
     //Randomly select from the congratsArray if all cards are matched
     let randomIndex = Math.floor(Math.random() * congratsArray.length);
      alert(congratsArray[randomIndex]);
+ }
+
+ // Count time function 
+ let countTime = 60;
+ const countTiming = () =>{
+    document.getElementById("timer").innerText = countTime;
+    countTime--;
+    if(countTime <= 0){
+        gameOver();
+    }
  }
 
 function gameOver(){
