@@ -52,7 +52,6 @@ const countDownTiming = () => {
         gameOver();
     }
 
-
 //format time before displaying
 let secondsValue = seconds <= 61 ? `${seconds}` : seconds;
 countDownTime.innerHTML = `<span>Time:</span> ${secondsValue}`;
@@ -191,6 +190,7 @@ function congrats() {
 
 function gameOver(){
     alert('Game Over! :D');
+    clearInterval(countdownInterval); // Stop the countdown
 }
 
 
