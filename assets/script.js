@@ -39,23 +39,25 @@ let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
 
+// For the time
 const countDownTime = document.getElementById("timer");
 let countdownInterval = null; // Store the interval
 // Initial Time
-let seconds = 60;
+let seconds = 61;
 
 const countDownTiming = () => {
     seconds -= 1;
     // minutes logic
-    if( seconds <= 0){
+    if( seconds == 0){
         gameOver();
     }
 
 
 //format time before displaying
-let secondsValue = seconds <= 60 ? `${seconds}` : seconds;
-countDownTime.innerHTML = `<span>Time:</span>${secondsValue}`;
+let secondsValue = seconds <= 61 ? `${seconds}` : seconds;
+countDownTime.innerHTML = `<span>Time:</span> ${secondsValue}`;
 };
+
 // Call the startGame immediately the window is loaded
 window.onload = function () {
     startGame();
@@ -188,7 +190,7 @@ function congrats() {
 
 
 function gameOver(){
-     alert('Game Over! :D');
+    alert('Game Over! :D');
 }
 
 
