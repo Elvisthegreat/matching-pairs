@@ -97,7 +97,8 @@ const startGame = () => {
         }
         board.push(roww);
     }
-
+    countDownTiming();
+    setInterval(countDownTiming, 1000); // call countDownTiming every 1000 milliseconds
 };
 
 function frontCard(){
@@ -127,9 +128,6 @@ function clickCard() {
             lookForMatch();
         }
     }
-    countDownTiming();
-    setInterval(countDownTiming, 1000); // call countDownTiming every 1000 milliseconds
-
 }
 
   function lookForMatch() {
