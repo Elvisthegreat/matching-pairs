@@ -25,7 +25,7 @@ const congratsArray = [
      "Magnificent",
      'Better days are ahead of you',
      "You spiced it up",
-     "Should i call you a king Sir :D?!"
+     "Should i call you a king Sir? :D!"
 ]
 
 // Declare a Restart game variable and add an EventListener to it for restart
@@ -38,7 +38,23 @@ let columns = 5;
 let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
-let timerID;
+
+const countDownTime = document.getElementById("timer");
+// Initial Time
+let seconds = 60;
+
+const countDownTiming = () => {
+    seconds -= 1;
+    // minutes logic
+    if( seconds <= 0){
+        gameOver();
+    }
+
+
+//format time before displaying
+let secondsValue = seconds <= 60 ? `${seconds}` : seconds;
+countDownTime.innerHTML = `<span>Time:</span>${secondsValue}`;
+};
 
 // Call the startGame immediately the window is loaded
 window.onload = function () {
@@ -81,8 +97,6 @@ const startGame = () => {
         }
         board.push(roww);
     }
-    countTiming();
-    timerID = setInterval(countTiming, 1000);
 
 };
 
@@ -113,6 +127,8 @@ function clickCard() {
             lookForMatch();
         }
     }
+    countDownTiming();
+    setInterval(countDownTiming, 1000); // call countDownTiming every 1000 milliseconds
 
 }
 
@@ -128,7 +144,7 @@ function clickCard() {
       
       }, 1000);
     } else{
-      matchedCards += 2;  // Increment the matchedCards count
+      matchedCards += 2; // Increment the matchedCards count
       firstCard = null ;
       secondCard = null;
     }
@@ -148,7 +164,6 @@ function restartGame() {
     firstCard = null;
     secondCard = null;
     matchedCards = 0;
-    
     // Remove all the cards from the board in the DOM
     let boardElement = document.getElementById("board");
     while (boardElement.firstChild) {
@@ -160,9 +175,7 @@ function restartGame() {
  restartGame function to Start a new game 
  when the restart button is clicked*/
 startGame();
-countTime = 60;
-document.getElementById("timer").innerText = countTime;
-
+seconds = 0;
 } 
 
 function congrats() {
@@ -171,23 +184,13 @@ function congrats() {
      alert(congratsArray[randomPick]);
  }
 
- // Count time function 
- let countTime = 60;
- const countTiming = () =>{
-    document.getElementById("timer").innerText = countTime;
-    countTime--;
-    if(countTime <= 0 || matchedCards === rows * columns){
 
-        // Stop the timer and clear the interval
-        clearInterval(timerID)
-        // Calling the gameOver function
-        gameOver();
-    }
- }
 
-function gameOver(){
-    alert('Game Over! :D');
-}
+// function gameOver(){
+//     alert('Game Over! :D');
+//     restartGame();
+    
+// }
 
 
 // jQuery for the Restart button color effect
