@@ -46,7 +46,7 @@ let countdownInterval = null; // Store the interval
 let seconds = 61;
 
 const countDownTiming = () => {
-    seconds -= 1;
+    seconds --;
     // minutes logic
     if( seconds == 0){
         gameOver();
@@ -187,7 +187,7 @@ function congrats() {
  }
 
 
-
+// Game over function
 function gameOver(){
     alert('Game Over! :D');
     clearInterval(countdownInterval); // Stop the countdown
