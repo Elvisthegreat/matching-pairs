@@ -18,14 +18,15 @@ let images = [
  */
 const congratsArray = [
      'You are the game master',
-     'Mile stone! Keep rolling.',
+     'Keep rolling.',
      'You are the man!',
      'Excellent! Great job!',
      'Looks like it was too easy for you! :D',
      "Magnificent",
      'Better days are ahead of you',
      "You spiced it up",
-     "Should i call you a king Sir? :D!"
+     "Should i call you a Sir? :D!",
+     'Best to ever do it alone'
 ]
 
 // Declare a Restart game variable and add an EventListener to it for restart
