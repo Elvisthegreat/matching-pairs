@@ -40,7 +40,7 @@ let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
 
-const isGameOver = false; // Global variable to prevent cards flip when game is over
+let isGameOver = false; // Global variable to prevent cards flip when game is over
 
 // For the time
 const countDownTime = document.getElementById("timer");
@@ -50,7 +50,7 @@ let seconds = 61;
 
 const countDownTiming = () => {
     seconds --;
-    // minutes logic
+    // seconds logic
     if( seconds == 0){
         gameOver();
     }
