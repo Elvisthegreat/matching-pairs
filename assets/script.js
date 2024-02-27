@@ -40,6 +40,8 @@ let firstCard ; // store the first card clicked
 let secondCard; // store the second card clicked
 let matchedCards = 0; // count the number of matched cards
 
+const isGameOver = false; // Global variable to prevent cards flip when game is over
+
 // For the time
 const countDownTime = document.getElementById("timer");
 let countdownInterval = null; // Store the interval
@@ -112,6 +114,9 @@ function frontCard(){
 }
 
 function clickCard() {
+
+    if (!isGameOver){ // Only flip the cards if the game is not over
+
     if (this.src.includes("back.")) {
         if(!firstCard){
             firstCard = this;
@@ -129,6 +134,7 @@ function clickCard() {
             lookForMatch();
         }
     }
+  }
 }
 
   function lookForMatch() {
@@ -164,6 +170,8 @@ function restartGame() {
     firstCard = null;
     secondCard = null;
     matchedCards = 0;
+    isGameOver = false; // Reset gameOver to false when a new game starts
+
     // Remove all the cards from the board in the DOM
     let boardElement = document.getElementById("board");
     while (boardElement.firstChild) {
@@ -192,6 +200,7 @@ function congrats() {
 function gameOver(){
     alert('Game Over! :D');
     clearInterval(countdownInterval); // Stop the countdown
+    isGameOver = true;
 }
 
 
