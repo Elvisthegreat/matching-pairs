@@ -170,7 +170,8 @@ function restartGame() {
     firstCard = null;
     secondCard = null;
     matchedCards = 0;
-    isGameOver = false; // Reset gameOver to false when a new game starts
+    // Reset gameOver to false when a new game starts so cards can be flip again
+    isGameOver = false;
 
     // Remove all the cards from the board in the DOM
     let boardElement = document.getElementById("board");
