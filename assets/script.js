@@ -1,15 +1,15 @@
 //images array
 let images = [
-"assets/images/foto1.webp",
-"assets/images/foto2.webp",
-"assets/images/foto3.webp",
-"assets/images/foto4.webp",
-"assets/images/foto5.webp",
-"assets/images/foto6.webp",
-"assets/images/foto7.webp",
-"assets/images/foto8.webp",
-"assets/images/foto9.webp",
-"assets/images/foto10.webp"
+"assets/images/three-chicken.webp",
+"assets/images/cyber-street.webp",
+"assets/images/tallest-buiding-in-dubai.webp",
+"assets/images/sky-scrapper.webp",
+"assets/images/intense-cold-weather.webp",
+"assets/images/influencer.webp",
+"assets/images/children-in-school-bus.webp",
+"assets/images/chrismas-snow.webp",
+"assets/images/animal-bear.webp",
+"assets/images/bycircle-mountain-climber.webp"
 ];
 
 /**
