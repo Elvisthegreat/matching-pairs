@@ -9,7 +9,9 @@ let images = [
 "assets/images/children-in-school-bus.webp",
 "assets/images/chrismas-snow.webp",
 "assets/images/animal-bear.webp",
-"assets/images/bycircle-mountain-climber.webp"
+"assets/images/robot-space-with-astronaut-illustration_1284-59230.jpg",
+"assets/images/man-in-space.webp",
+"assets/images/bicycle-mountain-climber.webp"
 ];
 
 /**
