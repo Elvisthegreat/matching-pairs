@@ -1,39 +1,25 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **MATCHING PAIRS - Introduction**
 
-Welcome,
+Welcome yourself to a *Memory game*, also know as **Matching Pairs** - a game were you have to flip a game to match same image!
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Screenshot (375)](https://github.com/Elvisthegreat/Rock-paper-scissors/assets/141064225/e9eb6267-6501-4690-999b-ed926f62020a)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+MATCHING PAIRS or memory game is a delightful and challenging activity that tests your ability to recall information it’s about training your brain to retain information and make connections. Its a very simple and easy game to play with time counting downward, you flip a card then flip another one to look for the same exact image, and when you match a pair...those two matched images stay without flipping back, then you have to continue till you match all rows and column. But if you are unable to match all cards before the time runs out, a end game function is called and you won't be able to flip anymore cards, the only way to keep on playing is to click on the restart button to get all functions back in place :D. So flip those cards, exercise your mind, and enjoy the thrill of matching!
 
-## Codeanywhere Reminders
+<hr>
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## **TABLE OF CONTENTS**
 
-`python3 -m http.server`
+## **Users Goal**
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- 
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## **Site Owner Goal**
 
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+- To create a site around the theme of 'cards'
+- To allow users to have fun with something simple with their free time
+- To provide users with what an AI images looks like
+- To show users what html, css and javascript looks like in something simple
+- To use images, colours, interactivities and effect in a simple project
+- To build something with my new knowledge to the users
+- To provide users with something they can always come back to
