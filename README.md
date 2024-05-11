@@ -14,15 +14,16 @@ MATCHING PAIRS or memory game is a delightful and challenging activity that test
    [Users Experience](#users-experience) <br>
    [Users Stories](#users-stories) <br>
    [Features](#features) <br>
-   [Technologoies Used](#technologoies-used) <br>
+   [Technologoies or Langauge Used](#technologoies-or-language-used) <br>
+   [Google](#google) <br>
    [Design](#design) <br>
    [Colors](#Colors) <br>
    [Libraries & Tools](#libraries-&-tools) <br>
    [Validation](#validation) <br>
    [Testing](#testing) <br>
-   [](#) <br>
-   [](#) <br>
-   [](#) <br>
+   [Bugs and Fixed bugs](#bugs-and-fixed-bugs) <br>
+   [Deployment](#deployment) <br>
+   [Credits and Acknowledgements](#credits-and-acknowledgements) <br>
 
 ## **Users Goal**
    - To get what they expected
@@ -78,22 +79,46 @@ MATCHING PAIRS or memory game is a delightful and challenging activity that test
    12. As a site owner I should make sure restart button restart every part of the game so that user can have good user experience
 
 ## Features
-- **Row and Columns**: The game board consists of a row and columns that is customized to hold different numbers of cards.
-- **Timer**: Keep track of how long it takes you to complete the game.
-- **Restart Button**: Help you restart the game at any giving moment.
-![Screenshot (487)](https://github.com/Elvisthegreat/matching-pairs/assets/141064225/8552d232-aae0-4019-af96-6efdc2d83447)
+- **Row and Columns**: The game board consists of a row and columns that is customized to hold different numbers of cards for larger and smaller screen.
+   <details><summary>View larger screen</summary>
+   <img src="https://github.com/Elvisthegreat/matching-pairs/assets/141064225/7f55a0a2-910d-492a-ae06-5f12ea4ef924">
+   </details>
 
+   <details><summary>View smaller screen</summary>
+   <img src="https://github.com/Elvisthegreat/matching-pairs/assets/141064225/0589ed70-871c-4432-8490-1dcfbe85327a">
+   </details> <br>
+
+- **Timer**: Keep track of how long it takes you to complete the game and when you finish the game in time a congratulation alert 
+   is display and time counting stop else, when the time get to zero and you still haven't finish the game, card flipping stop working.
+   <details><summary>View timer image</summary>
+   <img src="https://github.com/Elvisthegreat/matching-pairs/assets/141064225/778f3984-19b8-45f9-ba6e-4069e709eca8">
+   </details> <br>
+
+- **Restart Button**: Help you restart the game at any giving moment.
+   <details><summary>View Restart button image</summary>
+   <img src="https://github.com/Elvisthegreat/matching-pairs/assets/141064225/5569217b-2ad4-4582-b2e0-289fdf5441de">
+   </details>
    
 
-## Technologies Used
+## Technologies or Langauge Used
 - HTML5
 - CSS3
 - JavaScript
 - jQuery
 
+   ##### Google
+   * Its was used to know how to structure some part of the game
+   * Was used to search out some code's
+
 ## Design
-### Design Idea
+#### Design Idea
 This game was designed in a way things could be easy for a user and texts are easily read, well displaying colors and ai images as the flip cards
+
+#### Images
+   The images used for this design or game was downloaded from an Ai open site
+   <details><summary>View board image</summary>
+   <img src="https://github.com/Elvisthegreat/matching-pairs/assets/141064225/ac3e26f8-9ce7-4925-bf2f-5e4e4b34e42b">
+   </details>
 
 ## Colors
    ### Background-color
@@ -101,7 +126,7 @@ This game was designed in a way things could be easy for a user and texts are ea
    I chose #0b0b39 type blue color as the background color because i wanted something that could make my text well readable
 
 
-### Libraries & Tools
+## Libraries & Tools
 
 - [Am I Responsive](http://ami.responsivedesign.is/)
 - [Favicon.io](https://favicon.io)
@@ -131,7 +156,7 @@ This game was designed in a way things could be easy for a user and texts are ea
 
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
      <details><summary> view validation Lighthouse</summary>
-     <img src="">
+     <img src="https://github.com/Elvisthegreat/matching-pairs/assets/141064225/13de81e9-ce36-48a3-b181-939d2ce3aef2">
      </details>
 
 ## Testing
@@ -143,4 +168,47 @@ This game was designed in a way things could be easy for a user and texts are ea
 | Click on the 'Restart' | Time will restart back to 60 seconds| Works as expected |
 | Samll screen size 'Responsive' | Game is reduce to fit| Works as expected |
 | Large screen size 'Responsive'| Game height and width increase to fit| Works as expected |
+
+### Bugs and Fixed bugs
+ **Bugs** | **fixed**
+ ------------ | ------------ |
+ | When i tested my HTML code found out there was missing closing tag which resulted to an error in the WC3 Validator | Closing end tag added and results are now green|
+ | Tested my javscript code with jsHint and found out there was missing semicolons | Missing semicolons added now test passes
+
+# Deployment
+
+ This website was deploy with GitHub
+[Memory Game](https://elvisthegreat.github.io/matching-pairs/)
+
+#### How to deploy with github <br>
+
+  1. In the GitHub repository <br>
+  2. Scroll halfway down, on the right side of your screen<br>
+  3. Click on github-pages
+  4. A list of all lastest commit will appear, then click on the following commit you want to deploy
+
+#### For the source 
+1.select Branch: master <br>
+2.After the webpage refreshes automaticaly you will see a ribbon on the top saying: Your site is published
+
+##### You can fork the repository by following these steps:
+1.Go to the GitHub repository <br>
+2.Click on Fork button in upper right hand corner <br>
+
+##### To clone the repository by following these steps:
+1.Go to the GitHub repository <br>
+2.Locate the Code button above the list of files and click it <br>
+3.Select if you prefere to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard 
+Open Git Bash <br>
+4.Change the current working directory to the one where you want the cloned directory <br>
+5.Type git clone and paste the URL from the clipboard <br>
+6.Press Enter to create your local clone. <br>
+
+# Credits and Acknowledgements
+
+* Special thanks to the following:
+- Tutor team for their hard work
+- My Mentor Mo Shami
+- And slack students
+
 
